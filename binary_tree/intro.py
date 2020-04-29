@@ -2,7 +2,7 @@
 this is the code practie for binary tree in gfg tut
 """
 
-class Node(self):
+class Node():
 
     def __init__(self, data):
 
@@ -10,7 +10,7 @@ class Node(self):
         self.left = None
         self.right = None
 
-class binary_tree(self):
+class binary_tree():
 
     def __init__(self):
         self.root = None
@@ -31,3 +31,4 @@ root.left = Node(2)
 root.right = Node(3)
 
 root.left.left = Node(4)
+
