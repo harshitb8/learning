@@ -10,6 +10,7 @@ class stack:
         self.TOP = 0
         self.full = 0
         self.empty = 1
+        self.overflown = 0
         
         self.stack = list()
 
@@ -60,12 +61,21 @@ class stack:
             i+=1
         print("=============================")
 
-stack_1 = stack(5)
-stack_1.push(3)
-stack_1.push(5)
-stack_1.push(7)
-stack_1.push(4)
-stack_1.push(3)
-stack_1.print_info()
-pop1 = stack_1.pop()
-pop2 = stack_1.pop()
+class linked_stack:
+
+    def __init__(self, size):
+        
+        pass
+
+if (1) :
+
+    stack_1 = stack(5)
+    stack_1.push(3)
+    stack_1.push(5)
+    stack_1.push(7)
+    stack_1.push(4)
+    stack_1.push(3)
+    stack_1.push(66)
+    stack_1.print_info()
+    pop1 = stack_1.pop()
+    pop2 = stack_1.pop()
