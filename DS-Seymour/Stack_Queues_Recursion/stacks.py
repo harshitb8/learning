@@ -31,11 +31,14 @@ class stack:
 
         if self.TOP == self.MAXSTK:
             print("Stack is full. Nothing can be added")
-            self.full = 1
+            self.overflown+=1
             return
         
         self.stack.append(item)
         self.TOP+=1
+
+        if self.TOP == self.MAXSTK:
+            self.full = 1
     
     def print_info(self):
 
@@ -60,6 +63,9 @@ class stack:
 stack_1 = stack(5)
 stack_1.push(3)
 stack_1.push(5)
+stack_1.push(7)
+stack_1.push(4)
+stack_1.push(3)
 stack_1.print_info()
 pop1 = stack_1.pop()
 pop2 = stack_1.pop()
