@@ -39,7 +39,7 @@ class stack:
     
     def print_info(self):
 
-        print("=============================")
+        print("\n\n=============================")
         print("Below are the stack info")
         print("-----------------------------")
         print("Size: ", self.MAXSTK)
@@ -54,10 +54,12 @@ class stack:
         i = 0
         while (i < self.TOP):
             print(self.stack[i])
+            i+=1
         print("=============================")
 
 stack_1 = stack(5)
 stack_1.push(3)
 stack_1.push(5)
+stack_1.print_info()
 pop1 = stack_1.pop()
 pop2 = stack_1.pop()
