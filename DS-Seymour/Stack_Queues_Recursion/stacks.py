@@ -102,7 +102,7 @@ class linked_stack:
             node = node.ptr
 
 
-if (1) :
+if __name__ == '__main__' :
 
     stack_1 = stack(5)
     stack_1.push(3)
