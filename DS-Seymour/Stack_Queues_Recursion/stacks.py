@@ -14,7 +14,7 @@ class stack:
         self.empty = 1
         self.overflown = 0
         
-        self.stack = list()
+        self.stack = [None]*self.MAXSTK
 
     def pop(self):
 
@@ -37,7 +37,7 @@ class stack:
             self.overflown+=1
             return
         
-        self.stack.append(item)
+        self.stack[self.TOP] = item
         self.TOP+=1
 
         if self.TOP == self.MAXSTK:
