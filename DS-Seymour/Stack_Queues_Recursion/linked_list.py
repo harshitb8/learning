@@ -7,3 +7,7 @@ class Node:
 
         self.key = key
         self.ptr = None
+    
+    def __str__(self):
+
+        print(self.key)

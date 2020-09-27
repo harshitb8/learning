@@ -1,6 +1,8 @@
 """ Modelling Stack
 """
 
+from linked_list import *
+
 class stack:
     """ This is modelling of stack
     """
@@ -65,7 +67,20 @@ class linked_stack:
 
     def __init__(self, size):
         
-        pass
+        self.MAXSTK = size
+        self.TOP = 0
+        self.full = 0
+        self.empty = 1
+        self.overflown = 0
+        
+        self.stack = None
+    
+    def push(self, item):
+
+        node = Node(item)
+        node.ptr = self.TOP
+        self.TOP = node
+
 
 if (1) :
 
@@ -76,6 +91,6 @@ if (1) :
     stack_1.push(4)
     stack_1.push(3)
     stack_1.push(66)
-    stack_1.print_info()
+    # stack_1.print_info()
     pop1 = stack_1.pop()
     pop2 = stack_1.pop()
