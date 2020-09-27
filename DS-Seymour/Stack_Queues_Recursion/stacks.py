@@ -65,21 +65,41 @@ class stack:
 
 class linked_stack:
 
-    def __init__(self, size):
+    def __init__(self):
         
-        self.MAXSTK = size
-        self.TOP = 0
+        self.MAXSTK = "No size"
+        self.TOP = None
         self.full = 0
         self.empty = 1
         self.overflown = 0
-        
-        self.stack = None
     
     def push(self, item):
 
         node = Node(item)
         node.ptr = self.TOP
         self.TOP = node
+    
+    def pop(self):
+        
+        if self.TOP == None:
+            print("UNDERFLOW !! .. Stack is empty")
+            return
+
+        popped_item = self.TOP
+        self.TOP = self.TOP.ptr
+        return popped_item.key
+    
+    def print_info(self):
+
+        if self.TOP == None:
+            print("Stack is EMPTY !!")
+            return
+
+        node = self.TOP
+
+        while node != None:
+            print(node.key)
+            node = node.ptr
 
 
 if (1) :
@@ -92,5 +112,22 @@ if (1) :
     stack_1.push(3)
     stack_1.push(66)
     # stack_1.print_info()
-    pop1 = stack_1.pop()
-    pop2 = stack_1.pop()
+    # pop1 = stack_1.pop()
+    # pop2 = stack_1.pop()
+
+    print("------------ LINKED STACK --------------------")
+
+    stack_2 = linked_stack()
+    stack_2.pop()
+    stack_2.push(2)
+    stack_2.push(5)
+    stack_2.push(10)
+    stack_2.push(1)
+    stack_2.print_info()
+    print("---")
+    k = stack_2.pop()
+    k = stack_2.pop()
+    k = stack_2.pop()
+    k = stack_2.pop()
+    # k = stack_2.pop()
+    print("popped: ", k)

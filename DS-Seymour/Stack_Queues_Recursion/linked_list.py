@@ -10,4 +10,11 @@ class Node:
     
     def __str__(self):
 
-        print(self.key)
+        print(str(self.key))
+
+
+
+if __name__ == "__main__":
+
+    node = Node(5)
+    print(node.key)
