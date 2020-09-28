@@ -3,37 +3,64 @@
     2.) Use partitioning recursively for sorting
 """
 
-def partitioning(un_list):
+def partitioning(un_list, lb, ub):
 
     """ Finding out the proper place for pivot element is
         known as partitioning
     """
 
-    i = 0
-    j = len(un_list) - 1
+    i = lb
+    j = ub
 
     pivot = un_list[0]
-    print(un_list)
+    print('------')
+    print("Before Partitioning", un_list)
 
-    for k in range(1):
+    while ( i<j ):
 
+        # print('------')
 
-        while( un_list[i] >= pivot ):
+        while( un_list[i] <= pivot ):
             i+=1
 
-        while( un_list[j] <= pivot ):
+        # print('i: ', i)
+
+        while( un_list[j] > pivot ):
             j-=1
+
+        # print('j: ', j)
 
         if (i<j):
             temp = un_list[i]
             un_list[i] = un_list[j]
             un_list[j] = temp
-        
-        print(un_list)
+
+        # print(un_list)
+    
+    un_list[0] = un_list[j]
+    un_list[j] = pivot
+
+    print("After partitioning: ", un_list)
+
+    return j
              
+def quick_sort(un_list, lb, ub):
+
+    """ Use Partitioning recursively for sorting
+    """
+
+    if lb < ub:
+        loc = partitioning(un_list, lb, ub)
+        quick_sort(un_list, lb, loc-1)
+        quick_sort(un_list, loc+1, ub)
+    else: 
+        return
 
 if __name__ == '__main__':
 
-    un_list = [7, 6, 10, 5, 9, 2, 1, 15, 7]
+    un_list = [7, 6, 10, 5, 9, 2, 1, 15, 89]
 
-    partitioning(un_list)
+    # k = partitioning(un_list, 0, 8)
+    # print(k)
+    quick_sort(un_list, 0, 8)
+    print(un_list)
