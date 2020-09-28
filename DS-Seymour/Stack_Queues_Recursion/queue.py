@@ -104,6 +104,30 @@ class p_queue:
         self.rear = -1
         self.max = size
         self.qu = [None] * self.max
+    
+    def Qinsert(self, item):
+
+        try:
+            key = item[0]
+            priority = item[1]
+        except:
+            key = item
+            priority = 1
+        
+        end = self.rear
+        ele = self.qu[self.rear]
+        prio = ele[1]
+
+        while rear >= 0 or ele[1] > prio:
+            pass
+
+    def Qdelete(self):
+
+        pass
+
+    def print_info(self):
+
+        pass
             
 
 if __name__ == '__main__':
