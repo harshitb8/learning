@@ -56,6 +56,13 @@ def quick_sort(un_list, lb, ub):
     else: 
         return
 
+def quick_sort_using_stack(un_list, lb, ub):
+
+    """ This is using stack to store addresses
+    """
+
+    pass
+
 if __name__ == '__main__':
 
     un_list = [7, 6, 10, 5, 9, 2, 1, 15, 89]
