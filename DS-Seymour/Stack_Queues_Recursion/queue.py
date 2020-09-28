@@ -87,12 +87,24 @@ class queue_link:
 
         print ('-----------------')
 
-
 class deques:
 
     def __init__(self):
 
         pass
+
+class p_queue:
+
+    def __init__(self, size):
+
+        """ This is a Priority queue where list of 2 elements in passed
+        """
+
+        # Will take front as always 0
+        self.rear = -1
+        self.max = size
+        self.qu = [None] * self.max
+            
 
 if __name__ == '__main__':
 
