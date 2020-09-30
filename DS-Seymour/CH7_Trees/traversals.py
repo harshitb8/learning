@@ -37,7 +37,6 @@ def preorder_stk(root):
             stk.append(item.right)
             item = item.left
 
-
 def inorder(root):
 
     if root != None:
@@ -50,6 +49,35 @@ def inorder(root):
     print(root.data)
     inorder(root.right)
 
+def inorder_stk(root):
+
+    print('================')
+
+    if root == None:
+        return
+    
+    stk = []
+
+    item = root
+
+    while item != None:
+        
+        stk.append(item)
+        item = item.left
+    
+    while len(stk):
+
+        item = stk.pop()
+        print(item.data)
+
+        if item.right != None:
+            item = item.right
+
+            while item != None:
+        
+                stk.append(item)
+                item = item.left
+
 def postorder(root):
 
     if root != None:
@@ -61,6 +89,12 @@ def postorder(root):
     postorder(root.left)
     postorder(root.right)
     print(root.data)
+
+def postorder_stk(root):
+
+    if root == None:
+        return
+    
 
 def level_trav(root):
 
@@ -90,10 +124,16 @@ if __name__ == '__main__':
     root.right = bnode(3)
 
     root.left.left = bnode(4)
+    root.left.right = bnode(5)
+
+    root.right.right = bnode(7)
+
+    root.left.right.left = bnode(8)
+    root.left.right.right = bnode(9)
 
     # preorder(root)
     # inorder(root)
     # postorder(root)
 
-    preorder_stk(root)
+    inorder_stk(root)
     
