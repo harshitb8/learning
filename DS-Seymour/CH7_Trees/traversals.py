@@ -17,7 +17,26 @@ def preorder(root):
 
 def preorder_stk(root):
 
-    pass
+    """ preorder using stack
+    """
+
+    if root == None:
+        return
+    
+    stk = []
+
+    stk.append(root)
+
+    while len(stk):
+
+        item = stk.pop()
+
+        while item != None:
+            
+            print(item.data)
+            stk.append(item.right)
+            item = item.left
+
 
 def inorder(root):
 
@@ -76,5 +95,5 @@ if __name__ == '__main__':
     # inorder(root)
     # postorder(root)
 
-    level_trav(root)
+    preorder_stk(root)
     
