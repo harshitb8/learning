@@ -3,7 +3,6 @@
     2.) circular structure
     3.) using linked list
 """
-
 from linked_list import *
 
 class queue:
