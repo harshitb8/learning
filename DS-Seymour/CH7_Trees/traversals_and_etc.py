@@ -115,6 +115,15 @@ def level_trav(root):
         if item.right != None:
             q1.append(item.right)
 
+def delete_node(root, node):
+
+    """ deletes the node and replces it with the last level
+        trav node if internal node
+        root is taken just if the node is internal (not leaf)
+        and that case last node will be found wrt to the root
+        passed
+    """
+
 
 if __name__ == '__main__':
 

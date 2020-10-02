@@ -68,6 +68,9 @@ def insert_in_bst(root, key):
             level += 1
 
 
+def delete_in_bst(root, key):
+    pass
+
 """
 ## ------- testing part build below BST tree ----
 #       
