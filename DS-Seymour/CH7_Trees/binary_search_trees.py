@@ -67,9 +67,36 @@ def insert_in_bst(root, key):
         
             level += 1
 
+def delete_in_bst(root, node, parent):
 
-def delete_in_bst(root, key):
-    pass
+    """ Pg: 7.32
+        A.) if node has <= 1 child
+        B.) if node has 2 children
+    """
+    
+    if not node.left != None and node.right != None:
+        
+        # CASE A
+        
+        if node.left == None and node.right == None:
+            child = None
+        elif node.left != None:
+            child = node.left
+        else:
+            child = node.right
+        
+        # parent is the parent of the node that is to be deleted
+        if parent != None:
+            if parent.left == node:
+                parent.left = child
+            if parent.right == node:
+                parent.right = child
+            else:
+                root = child
+    
+    else:
+        pass
+
 
 """
 ## ------- testing part build below BST tree ----
