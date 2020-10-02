@@ -93,9 +93,39 @@ def delete_in_bst(root, node, parent):
                 parent.right = child
             else:
                 root = child
+        
+        return
     
     else:
+
+        # CASE B
+        # Find the inor succ and it's parent and call the function
+        # so that it will CASE A now
+
+        item = node.right
+        save = item
+        while item.left != None:
+            save = item
+            item = item.left
+
+        suc = item
+        parent_suc = save
+        
+        delete_in_bst(root, suc, parent_suc)
+        
+        if parent != None:
+            if parent.left == node:
+                parent.left = suc
+            if parent.right == node:
+                parent.right = suc
+        else:
+            root = suc
+        
+        suc.left = node.right
+        suc.right = node.right 
+    
         pass
+        
 
 
 """
