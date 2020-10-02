@@ -94,7 +94,6 @@ def postorder_stk(root):
 
     if root == None:
         return
-    
 
 def level_trav(root):
 
