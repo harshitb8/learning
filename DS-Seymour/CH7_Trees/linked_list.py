@@ -17,3 +17,9 @@ class ll_node:
 
         while item != None:
             print(item.data)
+    
+
+
+def list_to_ll(self, list):
+        
+       pass
