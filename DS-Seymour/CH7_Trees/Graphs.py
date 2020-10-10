@@ -6,7 +6,7 @@
         -deletion
         -Calc A^n
         -Calc P
-        -shortest path
+        -shortest path.. Getting incorrect output
     -list
         -insertion
         -deletion
@@ -37,7 +37,7 @@ class mgraph:
         """ This would be matrix passed ^ 1
         """
 
-        return self.matrix_mult(self.glist, 1)
+        return self.A_to_m(1)
 
     def A_to_m(self, m):
 
@@ -123,12 +123,55 @@ class mgraph:
 
     def warshall_path_m(self):
 
-        pass
+        """ getting path matrix wihoiut multiplication
+        """
+
+        P = self.get_adjency_matrix()
+
+        for k in range (self.nos):
+            for i in range(self.nos):
+                for j in range(self.nos):
+                    P[i][j] = P[i][j] | ( P[i][k] & P[k][j] )
+        
+        return P
 
     def shortest_path(self):
 
-        """ uses warshall's algoithtm
+        """ uses warshall's algoithtm to find the shortest path
+            weighted graphis passed
         """
+
+        # replace 0 with 100
+
+        Q = [[0]*self.nos]*self.nos
+        Q = []
+
+        for i in range(self.nos):
+            q_row = []
+            for j in range(self.nos):
+                if self.glist[i][j] == 0:
+                    q_row.append(100)
+                else:
+                    q_row.append(self.glist[i][j])
+            Q.append(q_row)
+        
+        Q_temp = []
+        for k in range(self.nos):
+            # print('-------------', k)
+            # self.print_mtrx(mlist = Q)
+            # print()
+            for i in range(self.nos):
+                Q_temp_row = []
+                for j in range(self.nos):
+                    Q[i][j] = min([ Q[i][j], Q[i][k] + Q[k][j] ])
+                    value = min([ Q[i][j], Q[i][k] + Q[k][j] ])
+                    Q_temp_row.append(value)
+                Q_temp.append(Q_temp_row)
+            
+            # Q = Q_temp
+
+        
+        return Q
     
     def convert_to_ll(self):
 
@@ -150,3 +193,18 @@ if __name__ == '__main__':
     # k = g1.A_to_m(3)
     k = g1.get_path_matrix()
     g1.print_mtrx(mlist = k)
+    print()
+    k = g1.warshall_path_m()
+    g1.print_mtrx(mlist = k)
+    print()
+
+    WGraph = []
+    WGraph.append([7, 5, 0, 0])
+    WGraph.append([7, 0, 0, 2])
+    WGraph.append([0, 3, 0, 0])
+    WGraph.append([4, 0, 1, 0])
+
+    wg1=mgraph(WGraph)
+    k = wg1.shortest_path()
+    wg1.print_mtrx(mlist = k)
+    print()
