@@ -13,6 +13,8 @@
     -topological sort
 """
 
+from linked_list_for_graphs import *
+
 class mgraph:
 
     def __init__(self, glist):
@@ -178,6 +180,23 @@ class mgraph:
         """
         """
 
+def print_ll_graph(node):
+
+    if node == None:
+        return
+    
+    node_list_item = node
+
+    while node_list_item != None:
+
+        print(f'{node_list_item.data}:', end = ' ')
+
+        adj_item = node_list_item.adj
+        print(adj_item, end = ' ')
+        
+        node_list_item = node_list_item.next
+        print()
+
 if __name__ == '__main__':
 
     Graph = []
@@ -208,3 +227,45 @@ if __name__ == '__main__':
     k = wg1.shortest_path()
     wg1.print_mtrx(mlist = k)
     print()
+
+    print(' ---------------- LINKED LIST GRAPH --------------')
+
+    # Page: 8.12
+
+    graph_nodes = ['A', 'B', 'C', 'D', 'E']
+    node_list = list_to_ll(graph_nodes)
+    
+    # print_ll(node_list)
+
+    # for A
+    node_list.adj = ll_node(node_list.next)
+
+    # ---------------------------------------------------------------
+    # Understand the edge list pointed by adj stores the location
+    #   of the node and that has data
+    # print(node_list)
+    # print(node_list.data)
+    # print(node_list.adj)
+    # print(node_list.adj.data)
+    # print(node_list.adj.data.data)
+    # ---------------------------------------------------------------
+
+    node_list.adj.next = ll_node(node_list.next.next)
+    node_list.adj.next.next = ll_node(node_list.next.next.next)
+
+    # for B
+    node_list.next.adj = ll_node(node_list.next.next)
+
+    # for C
+    node_list.next.next.adj = None
+    
+    # for D
+    node_list.next.next.next.adj = ll_node(node_list.next.next)
+    node_list.next.next.next.adj.next = ll_node(node_list.next.next.next.next)
+
+    # for E
+    print('===')
+    print(node_list.next.next.next.next.data)
+    node_list.next.next.next.next.adj = ll_node(node_list.next.next)
+    
+    print_ll_graph(node_list)
