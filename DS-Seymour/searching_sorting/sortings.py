@@ -34,16 +34,18 @@ def bubble_sort(un_list):
     l = len(un_list)
 
     i,j = (0, 0)
+    i=l
 
-    for i in range(l):
+    while i>=0:
         print("Bubble at i: ", i, " :", un_list)
         print("=============")
-        for j in range(i+1, l):
+        for j in range(i-1):
             print("Bubble at j: ", j, " :", un_list)
-            if un_list[j] < un_list[j-1]:
-                temp = un_list[j]
-                un_list[j] = un_list[j-1]
-                un_list[j-1] = temp
+            if un_list[j+1] < un_list[j]:
+                temp = un_list[j+1]
+                un_list[j+1] = un_list[j]
+                un_list[j] = temp
+        i-=1
 
     print("Sorting after Bubble Sort: ", un_list)
 
@@ -76,7 +78,6 @@ def merge_pass(alist, blist):
     l = min([la, lb])
 
     while(len(alist) and len(blist)):
-        print('---', len(alist), len(blist))
         if alist[0] > blist[0]:
             passed.append(blist[0])
             blist = blist[1:]
@@ -109,7 +110,7 @@ def merge_sort(un_list, l):
 def partition(a, start, end):
 
     pivot = a[end]
-    
+
 
 def quick_sort(un_list):
     pass
